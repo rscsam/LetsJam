@@ -3,4 +3,8 @@
     <string name="start_session_button">Start Session</string>
     <string name="join_session_button">Join Session</string>
     <string name="start">Start</string>
+    <string name="select_your_instrument_text_view">Select Your Instrument</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

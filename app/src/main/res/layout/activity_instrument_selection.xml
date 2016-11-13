@@ -13,13 +13,47 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Select an Instrument"
-        android:id="@+id/temp_select_tv"/>
+        android:layout_centerHorizontal="true"
+        android:text="@string/select_your_instrument_text_view"
+        android:textSize="20sp"
+        android:id="@+id/select_instrument_tv"/>
 
-    <Button
+    <RelativeLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/temp_select_tv"
-        android:onClick="playSound"
-        android:text="@string/start"/>
+        android:layout_height="match_parent"
+        android:layout_below="@id/select_instrument_tv"
+        android:id="@+id/instruments_ib">
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/grand_piano"
+            android:onClick="startJamPiano"
+            android:id="@+id/piano_ib"/>
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/piano_ib"
+            android:src="@drawable/drums"
+            android:onClick="startJamDrums"
+            android:id="@+id/drums_ib" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/piano_ib"
+            android:src="@drawable/guitar"
+            android:onClick="startJamGuitar"
+            android:id="@+id/guitar_ib"/>
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/drums_ib"
+            android:layout_toEndOf="@id/guitar_ib"
+            android:src="@drawable/bass"
+            android:onClick="startJamBass"
+            android:id="@+id/bass_ib"/>
+    </RelativeLayout>
 </RelativeLayout>
