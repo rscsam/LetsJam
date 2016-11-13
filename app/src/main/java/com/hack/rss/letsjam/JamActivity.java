@@ -196,11 +196,17 @@ public class JamActivity extends AppCompatActivity
                 if (sounds[i] != 0) {
                     soundPool.play(soundMap.get(sounds[i]), 1, 1, 0, 0, 1);
                     counter++;
+                    record.add(sounds[i]);
                 } else {
-                    soundPool.play(soundMap.get(playback.get(counter)), 1, 1, 0, 0, 1);
+                    if (playback.size() > 0 && playback.get(counter) != null && playback.get(counter) != 0) {
+                        soundPool.play(soundMap.get(playback.get(counter)), 1, 1, 0, 0, 1);
+                        record.add(playback.get(counter));
+                    } else {
+                        record.add(0);
+                    }
                     counter++;
                 }
-                record.add(sounds[i]);
+
                 sounds[i] = 0;
             }
             if (clock > 30000) {
