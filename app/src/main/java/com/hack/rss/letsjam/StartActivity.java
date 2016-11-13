@@ -17,4 +17,9 @@ public class StartActivity extends AppCompatActivity {
         Intent startSelectionsActivity = new Intent(this, SelectionsActivity.class);
         startActivity(startSelectionsActivity);
     }
+
+    public void startISActivity(View view) {
+        Intent startISSelectionActivity = new Intent(this, InstrumentSelectionActivity.class);
+        startActivity(startISSelectionActivity);
+    }
 }

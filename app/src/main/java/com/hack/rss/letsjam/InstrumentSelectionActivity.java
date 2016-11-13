@@ -21,7 +21,7 @@ public class InstrumentSelectionActivity extends AppCompatActivity {
         setContentView(R.layout.activity_instrument_selection);
 
         Bundle extras = getIntent().getExtras();
-        if (extras.size() != 0)
+        if (extras != null)
             notes = extras.getIntegerArrayList("notes");
         else
             notes = null;
@@ -49,6 +49,8 @@ public class InstrumentSelectionActivity extends AppCompatActivity {
         jamSession.putExtra("instrument", 0);
         if (notes != null)
             jamSession.putExtra("notes", notes);
+        else
+            jamSession.putExtra("notes", new ArrayList<Integer>());
         startActivity(jamSession);
         finish();
     }
@@ -58,6 +60,8 @@ public class InstrumentSelectionActivity extends AppCompatActivity {
         jamSession.putExtra("instrument", 1);
         if (notes != null)
             jamSession.putExtra("notes", notes);
+        else
+            jamSession.putExtra("notes", new ArrayList<Integer>());
         startActivity(jamSession);
         finish();
     }
@@ -67,6 +71,8 @@ public class InstrumentSelectionActivity extends AppCompatActivity {
         jamSession.putExtra("instrument", 2);
         if (notes != null)
             jamSession.putExtra("notes", notes);
+        else
+            jamSession.putExtra("notes", new ArrayList<Integer>());
         startActivity(jamSession);
         finish();
     }
@@ -76,6 +82,8 @@ public class InstrumentSelectionActivity extends AppCompatActivity {
         jamSession.putExtra("instrument", 3);
         if (notes != null)
             jamSession.putExtra("notes", notes);
+        else
+            jamSession.putExtra("notes", new ArrayList<Integer>());
         startActivity(jamSession);
         finish();
     }

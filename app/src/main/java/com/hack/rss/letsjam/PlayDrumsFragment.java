@@ -37,9 +37,6 @@ public class PlayDrumsFragment extends Fragment implements View.OnClickListener 
             case R.id.kick_button:
                 listener.addSound(new Note(1, R.raw.kick));
                 break;
-            case R.id.crash_button:
-                listener.addSound(new Note(1, R.raw.crash));
-                break;
             case R.id.hihat_button:
                 listener.addSound(new Note(1, R.raw.hihat));
                 break;

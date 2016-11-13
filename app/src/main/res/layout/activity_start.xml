@@ -18,4 +18,13 @@
         android:text="@string/start_session"
         android:onClick="startSelectionsActivity"
         android:id="@+id/bttn_join_session"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_below="@id/bttn_join_session"
+        android:text="@string/start_blank_session"
+        android:onClick="startISActivity"
+        android:id="@+id/bttn_start_new_session"/>
 </RelativeLayout>
