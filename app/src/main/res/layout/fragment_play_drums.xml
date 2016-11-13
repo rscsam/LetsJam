@@ -9,14 +9,12 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:layout_margin="10dp"
-        android:orientation="horizontal"
-        android:layout_gravity="center" >
+        android:orientation="horizontal" >
         <Button
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="2"
+            android:layout_weight="1"
             android:layout_marginEnd="10dp"
-            android:text="Crash"
             android:textAllCaps="false"
             android:background="@android:color/transparent"
             android:onClick="onDrumsInteraction"
@@ -26,7 +24,6 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:layout_marginEnd="10dp"
-            android:text="Snare"
             android:textAllCaps="false"
             android:background="@android:color/transparent"
             android:onClick="onDrumsInteraction"
@@ -36,7 +33,6 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:layout_marginEnd="10dp"
-            android:text="Hihat"
             android:textAllCaps="false"
             android:background="@android:color/transparent"
             android:onClick="onDrumsInteraction"
@@ -44,13 +40,13 @@
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="0dp"
+        android:layout_weight="1">
         <Button
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="4"
             android:layout_marginEnd="10dp"
-            android:text="Bass"
             android:textAllCaps="false"
             android:background="@android:color/transparent"
             android:onClick="onDrumsInteraction"
