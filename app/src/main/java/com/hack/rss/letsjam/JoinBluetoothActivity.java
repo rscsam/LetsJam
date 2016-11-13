@@ -16,6 +16,5 @@ public class JoinBluetoothActivity extends AppCompatActivity {
     public void startJamSession(View view) {
         Intent joinBluetoothActivity = new Intent(this, InstrumentSelectionActivity.class);
         startActivity(joinBluetoothActivity);
-        finish();
     }
 }

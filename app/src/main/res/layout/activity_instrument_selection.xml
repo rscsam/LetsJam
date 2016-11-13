@@ -18,42 +18,53 @@
         android:textSize="20sp"
         android:id="@+id/select_instrument_tv"/>
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_below="@id/select_instrument_tv"
+        android:orientation="horizontal"
+        android:layout_centerHorizontal="true"
         android:id="@+id/instruments_ib">
 
         <ImageButton
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:src="@drawable/grand_piano"
+            android:scaleType="centerInside"
+            android:layout_weight="1"
             android:onClick="startJamPiano"
             android:id="@+id/piano_ib"/>
-
         <ImageButton
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_toEndOf="@id/piano_ib"
             android:src="@drawable/drums"
+            android:scaleType="centerInside"
+            android:layout_weight="1"
             android:onClick="startJamDrums"
             android:id="@+id/drums_ib" />
-
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/instruments_ib">
         <ImageButton
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_below="@id/piano_ib"
             android:src="@drawable/guitar"
+            android:scaleType="centerInside"
+            android:layout_weight="1"
             android:onClick="startJamGuitar"
             android:id="@+id/guitar_ib"/>
 
         <ImageButton
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_below="@id/drums_ib"
-            android:layout_toEndOf="@id/guitar_ib"
             android:src="@drawable/bass"
+            android:scaleType="centerInside"
+            android:layout_weight="1"
             android:onClick="startJamBass"
             android:id="@+id/bass_ib"/>
-    </RelativeLayout>
+    </LinearLayout>
 </RelativeLayout>

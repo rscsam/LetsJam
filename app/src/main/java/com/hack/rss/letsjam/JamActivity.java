@@ -10,6 +10,7 @@ import android.media.SoundPool;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.media.MediaPlayer;
+import android.util.Log;
 import android.view.View;
 
 import java.util.HashMap;
@@ -34,7 +35,6 @@ public class JamActivity extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_jam);
         Timer timer = new Timer();
         timer.scheduleAtFixedRate(new play(), new java.util.Date(), 50);
         context = getApplicationContext();
@@ -117,7 +117,10 @@ public class JamActivity extends AppCompatActivity
         addSound(new Note(0, R.raw.b_piano));
     }
 
-    public void onPianoInteraction() { }
+    public void onPianoInteraction(View v) {
+        Log.d("some", "hello there");
+        ((PlayPianoFragment) fragment).onClick(v);
+    }
     public void onDrumsInteration() { }
     public void onGuitarInteraction() { }
     public void onBassInteraction() { }

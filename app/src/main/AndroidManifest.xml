@@ -36,9 +36,6 @@
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:screenOrientation="landscape" />
 
-        <activity android:name=".JamActivityClone"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:screenOrientation="landscape" />
         <activity android:name=".EndJam"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:screenOrientation="landscape" />
