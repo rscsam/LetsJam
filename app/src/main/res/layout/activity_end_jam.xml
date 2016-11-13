@@ -10,4 +10,24 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.hack.rss.letsjam.EndJam">
 
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:id="@+id/file_name_et"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/file_name_et"
+        android:layout_centerHorizontal="true"
+        android:onClick="saveJam"
+        android:text="@string/save_button"
+        android:id="@+id/save_bttn"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/save_bttn"
+        android:onClick="returnHome"
+        android:text="@string/return_home_button"/>
 </RelativeLayout>

@@ -46,4 +46,6 @@
     <string name="as">A#</string>
     <string name="a">A</string>
     <string name="bass_guitar">Bass Guitar</string>
+    <string name="save_button">Save</string>
+    <string name="return_home_button">Return Home</string>
 </resources>
