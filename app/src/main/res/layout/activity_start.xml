@@ -18,5 +18,4 @@
         android:text="@string/start_session"
         android:onClick="startSelectionsActivity"
         android:id="@+id/bttn_join_session"/>
-
 </RelativeLayout>
