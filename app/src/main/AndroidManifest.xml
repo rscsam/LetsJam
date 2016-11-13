@@ -42,7 +42,9 @@
             android:name=".EndJam"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:screenOrientation="landscape" />
-        <activity android:name=".SelectionsActivity"></activity>
+        <activity android:name=".SelectionsActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="landscape" />
     </application>
 
 </manifest>

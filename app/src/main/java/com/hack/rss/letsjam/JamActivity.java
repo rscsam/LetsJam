@@ -31,6 +31,8 @@ public class JamActivity extends AppCompatActivity
     HashMap<Integer, Integer> soundMap;
 
     Fragment fragment;
+
+    Timer timer;
     int clock;
     int clockRate;
 
@@ -116,10 +118,16 @@ public class JamActivity extends AppCompatActivity
         soundMap.put(R.raw.hihat, soundPool.load(context, R.raw.hihat, 1));
 
         clockRate = 50;
-        Timer timer = new Timer();
+        timer = new Timer();
         timer.scheduleAtFixedRate(new play(), new java.util.Date(), clockRate);
 
         clock = 0;
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        timer.cancel();
     }
 
     public void addSound(Note note) {
@@ -190,7 +198,7 @@ public class JamActivity extends AppCompatActivity
                 }
                 record.add(sounds[i]);
             }
-            if (clock > 10000) {
+            if (clock > 30000) {
                 Log.d("Fin", "Clock finished");
                 this.cancel();
                 Log.d("Fin", "Timer canceled");

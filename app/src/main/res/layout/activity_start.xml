@@ -13,17 +13,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:text="@string/start_session_button"
-        android:onClick="startHostBluetoothActivity"
-        android:id="@+id/bttn_start_session"/>
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@id/bttn_start_session"
+        android:layout_centerInParent="true"
         android:text="@string/join_session_button"
         android:onClick="startJoinBluetoothActivity"
         android:id="@+id/bttn_join_session"/>
@@ -32,6 +22,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:text="Replay Past Sessions"
+        android:text="@string/replay_past_sessions"
         android:layout_below="@id/bttn_join_session"/>
 </RelativeLayout>

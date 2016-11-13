@@ -12,17 +12,12 @@ import java.io.DataOutputStream;
 import java.io.FileOutputStream;
 import java.util.ArrayList;
 
-import static android.R.attr.name;
-
 public class EndJam extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_end_jam);
-
-
     }
-
 
     public void saveJam(View v) {
         final EditText fileNameET = (EditText) findViewById(R.id.file_name_et);
