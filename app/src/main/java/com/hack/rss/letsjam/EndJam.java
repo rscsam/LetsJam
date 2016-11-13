@@ -12,14 +12,15 @@ import java.util.ArrayList;
 
 public class EndJam extends AppCompatActivity {
 
-    ArrayList<Integer> record;
+    //// TODO: 11/13/16 Something in these declarations breaks the whole program
+    /*ArrayList<Integer> record;
     Context context = getApplicationContext();
     File path = context.getFilesDir();
-    String name = "";
+    String name;
     File file = new File(path, name);
     DataOutputStream dataOutput;
 
-    EditText input;
+    EditText input;*/
 
 
     @Override
@@ -27,18 +28,18 @@ public class EndJam extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_end_jam);
 
-        Bundle extras = getIntent().getExtras();
-        record = extras.getIntegerArrayList("record");
+        //Bundle extras = getIntent().getExtras();
+        /*record = extras.getIntegerArrayList("record");
         FileOutputStream output = null;
         try {
             output = new FileOutputStream(path);
         } catch (java.io.FileNotFoundException e) { finish();}
 
-        dataOutput = new DataOutputStream(output);
+        dataOutput = new DataOutputStream(output);*/
     }
 
 
-    void saveJam() {
+    /*void saveJam() {
 
         for(Integer integer: record) {
             try {
@@ -46,5 +47,5 @@ public class EndJam extends AppCompatActivity {
             } catch (java.io.IOException e) {}
 
         }
-    }
+    }*/
 }

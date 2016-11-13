@@ -27,4 +27,11 @@
         android:text="@string/join_session_button"
         android:onClick="startJoinBluetoothActivity"
         android:id="@+id/bttn_join_session"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="Replay Past Sessions"
+        android:layout_below="@id/bttn_join_session"/>
 </RelativeLayout>

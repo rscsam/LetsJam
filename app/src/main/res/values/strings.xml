@@ -7,4 +7,43 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="major_chords_text_view">Major Chords</string>
+    <string name="minor_chords_text_view">Minor Chords</string>
+    <string name="amaj">Amaj</string>
+    <string name="as_maj">A#maj</string>
+    <string name="bmaj">Bmaj</string>
+    <string name="cmaj">Cmaj</string>
+    <string name="cs_maj">C#maj</string>
+    <string name="dmaj">Dmaj</string>
+    <string name="gs_min">G#min</string>
+    <string name="gmin">Gmin</string>
+    <string name="fs_min">F#min</string>
+    <string name="fmin">Fmin</string>
+    <string name="emin">Emin</string>
+    <string name="ds_min">D#min</string>
+    <string name="dmin">Dmin</string>
+    <string name="cs_min">C#min</string>
+    <string name="cmin">Cmin</string>
+    <string name="bmin">Bmin</string>
+    <string name="as_min">A#min</string>
+    <string name="amin">Amin</string>
+    <string name="ds_maj">D#maj</string>
+    <string name="emaj">Emaj</string>
+    <string name="fmaj">Fmaj</string>
+    <string name="fs_maj">F#maj</string>
+    <string name="gmaj">Gmaj</string>
+    <string name="gs_maj">G#maj</string>
+    <string name="gs">G#</string>
+    <string name="g">G</string>
+    <string name="fs">F#</string>
+    <string name="f">F</string>
+    <string name="e">E</string>
+    <string name="ds">D#</string>
+    <string name="d">D</string>
+    <string name="cs">C#</string>
+    <string name="c">C</string>
+    <string name="b">B</string>
+    <string name="as">A#</string>
+    <string name="a">A</string>
+    <string name="bass_guitar">Bass Guitar</string>
 </resources>

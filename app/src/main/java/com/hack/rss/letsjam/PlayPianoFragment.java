@@ -17,47 +17,7 @@ public class PlayPianoFragment extends Fragment implements View.OnClickListener 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = (ViewGroup) inflater.inflate(R.layout.fragment_play_piano, container, false);
-        Button ab = (Button) view.findViewById(R.id.a_button);
-        ab.setOnClickListener(this);
-        Button bb = (Button) view.findViewById(R.id.b_button);
-        bb.setOnClickListener(this);
-        Button cb = (Button) view.findViewById(R.id.c_button);
-        cb.setOnClickListener(this);
-        Button db = (Button) view.findViewById(R.id.d_button);
-        db.setOnClickListener(this);
-        Button eb = (Button) view.findViewById(R.id.e_button);
-        eb.setOnClickListener(this);
-        Button fb = (Button) view.findViewById(R.id.f_button);
-        fb.setOnClickListener(this);
-        Button gb = (Button) view.findViewById(R.id.g_button);
-        gb.setOnClickListener(this);
-        Button ab2 = (Button) view.findViewById(R.id.a2_button);
-        ab2.setOnClickListener(this);
-        Button bb2 = (Button) view.findViewById(R.id.b2_button);
-        bb2.setOnClickListener(this);
-        Button cb2 = (Button) view.findViewById(R.id.c2_button);
-        cb2.setOnClickListener(this);
-        Button db2 = (Button) view.findViewById(R.id.d2_button);
-        db2.setOnClickListener(this);
-        Button eb2 = (Button) view.findViewById(R.id.e2_button);
-        eb2.setOnClickListener(this);
-        Button fb2 = (Button) view.findViewById(R.id.f2_button);
-        fb2.setOnClickListener(this);
-        Button gb2 = (Button) view.findViewById(R.id.g2_button);
-        gb2.setOnClickListener(this);
-
-        Button asb = (Button) view.findViewById(R.id.as_button);
-        asb.setOnClickListener(this);
-        Button csb = (Button) view.findViewById(R.id.cs_button);
-        csb.setOnClickListener(this);
-        Button dsb = (Button) view.findViewById(R.id.ds_button);
-        dsb.setOnClickListener(this);
-        Button fsb = (Button) view.findViewById(R.id.fs_button);
-        fsb.setOnClickListener(this);
-        Button gsb = (Button) view.findViewById(R.id.gs_button);
-        gsb.setOnClickListener(this);
-        return view;
+        return inflater.inflate(R.layout.fragment_play_piano, container, false);
     }
 
     @Override

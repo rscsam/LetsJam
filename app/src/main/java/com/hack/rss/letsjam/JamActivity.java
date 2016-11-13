@@ -9,7 +9,6 @@ import android.media.AudioManager;
 import android.media.SoundPool;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.media.MediaPlayer;
 import android.util.Log;
 import android.view.View;
 
@@ -18,10 +17,11 @@ import java.util.Timer;
 import java.util.TimerTask;
 import java.util.ArrayList;
 
-
-
 public class JamActivity extends AppCompatActivity
-        implements PlayPianoFragment.OnPianoInteractionListener{
+        implements PlayPianoFragment.OnPianoInteractionListener,
+        PlayGuitarFragment.OnGuitarInteractionListener,
+        PlayBassFragment.OnBassInteractionListener,
+        PlayDrumsFragment.OnDrumsInteractionListener {
     //SoundPool.Builder soundPoolBuilder = new SoundPool.Builder();
     SoundPool soundPool = new SoundPool(6, AudioManager.STREAM_MUSIC, 0);
     ArrayList<Integer> record = new ArrayList<Integer>();
@@ -31,12 +31,12 @@ public class JamActivity extends AppCompatActivity
     HashMap<Integer, Integer> soundMap;
 
     Fragment fragment;
+    int clock;
+    int clockRate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Timer timer = new Timer();
-        timer.scheduleAtFixedRate(new play(), new java.util.Date(), 50);
         context = getApplicationContext();
 
         FragmentManager fragmentManager = getFragmentManager();
@@ -46,12 +46,12 @@ public class JamActivity extends AppCompatActivity
         int instrument = extras.getInt("instrument");
         if (instrument == 0)
             fragment = new PlayPianoFragment();
-//        else if (instrument == 1)
-//            fragment = new PlayDrumsFragment();
-//        else if (instrument == 2)
-//            fragment = new PlayGuitarFragment();
-//        else if (instrument == 3)
-//            fragment = new PlayBassFragment();
+        else if (instrument == 1)
+            fragment = new PlayDrumsFragment();
+        else if (instrument == 2)
+            fragment = new PlayGuitarFragment();
+        else if (instrument == 3)
+            fragment = new PlayBassFragment();
         else
             finish();
         ft.replace(android.R.id.content, fragment);
@@ -71,6 +71,55 @@ public class JamActivity extends AppCompatActivity
         soundMap.put(R.raw.fs_piano, soundPool.load(context, R.raw.fs_piano, 1));
         soundMap.put(R.raw.g_piano, soundPool.load(context, R.raw.g_piano, 1));
         soundMap.put(R.raw.gs_piano, soundPool.load(context, R.raw.gs_piano, 1));
+
+        soundMap.put(R.raw.amaj_guitar, soundPool.load(context, R.raw.amaj_guitar, 1));
+        soundMap.put(R.raw.asmaj_guitar, soundPool.load(context, R.raw.asmaj_guitar, 1));
+        soundMap.put(R.raw.bmaj_guitar, soundPool.load(context, R.raw.bmaj_guitar, 1));
+        soundMap.put(R.raw.cmaj_guitar, soundPool.load(context, R.raw.cmaj_guitar, 1));
+        soundMap.put(R.raw.csmaj_guitar, soundPool.load(context, R.raw.csmaj_guitar, 1));
+        soundMap.put(R.raw.dmaj_guitar, soundPool.load(context, R.raw.dmaj_guitar, 1));
+        soundMap.put(R.raw.dsmaj_guitar, soundPool.load(context, R.raw.dsmaj_guitar, 1));
+        soundMap.put(R.raw.emaj_guitar, soundPool.load(context, R.raw.emaj_guitar, 1));
+        soundMap.put(R.raw.fmaj_guitar, soundPool.load(context, R.raw.fmaj_guitar, 1));
+        soundMap.put(R.raw.fsmaj_guitar, soundPool.load(context, R.raw.fsmaj_guitar, 1));
+        soundMap.put(R.raw.gmaj_guitar, soundPool.load(context, R.raw.gmaj_guitar, 1));
+        soundMap.put(R.raw.gsmaj_guitar, soundPool.load(context, R.raw.gsmaj_guitar, 1));
+        soundMap.put(R.raw.amin_guitar, soundPool.load(context, R.raw.amin_guitar, 1));
+        soundMap.put(R.raw.asmin_guitar, soundPool.load(context, R.raw.asmin_guitar, 1));
+        soundMap.put(R.raw.bmin_guitar, soundPool.load(context, R.raw.bmin_guitar, 1));
+        soundMap.put(R.raw.cmin_guitar, soundPool.load(context, R.raw.cmin_guitar, 1));
+        soundMap.put(R.raw.csmin_guitar, soundPool.load(context, R.raw.csmin_guitar, 1));
+        soundMap.put(R.raw.dmin_guitar, soundPool.load(context, R.raw.dmin_guitar, 1));
+        soundMap.put(R.raw.dsmin_guitar, soundPool.load(context, R.raw.dsmin_guitar, 1));
+        soundMap.put(R.raw.emin_guitar, soundPool.load(context, R.raw.emin_guitar, 1));
+        soundMap.put(R.raw.fmin_guitar, soundPool.load(context, R.raw.fmin_guitar, 1));
+        soundMap.put(R.raw.fsmin_guitar, soundPool.load(context, R.raw.fsmin_guitar, 1));
+        soundMap.put(R.raw.gmin_guitar, soundPool.load(context, R.raw.gmin_guitar, 1));
+        soundMap.put(R.raw.gsmin_guitar, soundPool.load(context, R.raw.gsmin_guitar, 1));
+
+        soundMap.put(R.raw.a_bass, soundPool.load(context, R.raw.a_bass, 1));
+        soundMap.put(R.raw.as_bass, soundPool.load(context, R.raw.as_bass, 1));
+        soundMap.put(R.raw.b_bass, soundPool.load(context, R.raw.b_bass, 1));
+        soundMap.put(R.raw.c_bass, soundPool.load(context, R.raw.c_bass, 1));
+        soundMap.put(R.raw.cs_bass, soundPool.load(context, R.raw.cs_bass, 1));
+        soundMap.put(R.raw.d_bass, soundPool.load(context, R.raw.d_bass, 1));
+        soundMap.put(R.raw.ds_bass, soundPool.load(context, R.raw.ds_bass, 1));
+        soundMap.put(R.raw.e_bass, soundPool.load(context, R.raw.e_bass, 1));
+        soundMap.put(R.raw.f_bass, soundPool.load(context, R.raw.f_bass, 1));
+        soundMap.put(R.raw.fs_bass, soundPool.load(context, R.raw.fs_bass, 1));
+        soundMap.put(R.raw.g_bass, soundPool.load(context, R.raw.g_bass, 1));
+        soundMap.put(R.raw.gs_bass, soundPool.load(context, R.raw.gs_bass, 1));
+
+        soundMap.put(R.raw.kick, soundPool.load(context, R.raw.kick, 1));
+        soundMap.put(R.raw.snare, soundPool.load(context, R.raw.snare, 1));
+        soundMap.put(R.raw.crash, soundPool.load(context, R.raw.crash, 1));
+        soundMap.put(R.raw.hihat, soundPool.load(context, R.raw.hihat, 1));
+
+        clockRate = 50;
+        Timer timer = new Timer();
+        timer.scheduleAtFixedRate(new play(), new java.util.Date(), clockRate);
+
+        clock = 0;
     }
 
     public void addSound(Note note) {
@@ -100,8 +149,6 @@ public class JamActivity extends AppCompatActivity
                     sounds[5] = note.getsoundFile();
                 }
                 break;
-
-
         }
     }
 
@@ -112,23 +159,29 @@ public class JamActivity extends AppCompatActivity
         finish();
     }
 
-    public void play(View view) {
-        addSound(new Note(0, R.raw.a_piano));
-        addSound(new Note(0, R.raw.b_piano));
-    }
-
     public void onPianoInteraction(View v) {
-        Log.d("some", "hello there");
+        Log.d("Fragstart", "Launch piano");
         ((PlayPianoFragment) fragment).onClick(v);
     }
-    public void onDrumsInteration() { }
-    public void onGuitarInteraction() { }
-    public void onBassInteraction() { }
+    public void onDrumsInteraction(View v) {
+        Log.d("Fragstart", "Launch drums");
+        ((PlayDrumsFragment) fragment).onClick(v);
+    }
+
+    public void onGuitarInteraction(View v) {
+        Log.d("Fragstart", "Launch guitar");
+        ((PlayGuitarFragment) fragment).onClick(v);
+    }
+
+    public void onBassInteraction(View v) {
+        Log.d("Fragstart", "Launch bass");
+        ((PlayBassFragment) fragment).onClick(v);
+    }
 
     class play extends TimerTask {
         @Override
         public void run() {
-
+            clock += clockRate;
             for(int i = 0; i < 6; i++) {
                 if (sounds[i] != 0) {
                     int sound = soundPool.load(context, sounds[i], 1);
@@ -137,7 +190,13 @@ public class JamActivity extends AppCompatActivity
                 }
                 record.add(sounds[i]);
             }
-
+            if (clock > 10000) {
+                Log.d("Fin", "Clock finished");
+                this.cancel();
+                Log.d("Fin", "Timer canceled");
+                endJam(null);
+                Log.d("Fin", "ERROR: still going");
+            }
         }
     }
 }
