@@ -13,7 +13,11 @@ public class InstrumentSelectionActivity extends AppCompatActivity {
         setContentView(R.layout.activity_instrument_selection);
     }
 
+
     public void playSound(View view) {
-        MediaPlayer.create(this, R.raw.f0_piano).start();
+       if (System.nanoTime() % 10 == 0) {
+           MediaPlayer.create(this, R.raw.f0_piano).start();
+       }
+
     }
 }
