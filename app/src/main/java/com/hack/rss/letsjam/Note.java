@@ -2,17 +2,17 @@ package com.hack.rss.letsjam;
 
 
 public class Note {
-    private String instrument;
+    private int instrument;
     private long time;
-    private int note;
+    private int soundFile;
 
-    public Note(String instrument, long time, int note) {
+    public Note(int instrument, long time, int soundFile) {
         this.instrument = instrument;
         this.time = time;
-        this.note = note;
+        this.soundFile = soundFile;
     }
 
-    public String getInstrument() {
+    public int getInstrument() {
         return instrument;
     }
 
@@ -20,8 +20,8 @@ public class Note {
         return time;
     }
 
-    public int getNote() {
-        return note;
+    public int getsoundFile() {
+        return soundFile;
     }
 
 
