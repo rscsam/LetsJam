@@ -9,7 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 
 public class JamActivityClone extends AppCompatActivity
-        implements PlayPianoFragment.OnFragmentInteractionListener {
+        implements PlayPianoFragment.OnPianoInteractionListener {
 
     Fragment fragment;
 
@@ -38,5 +38,5 @@ public class JamActivityClone extends AppCompatActivity
         ft.commit();
     }
 
-    public void onFragmentInteraction() { }
+    public void onPianoInteraction() { }
 }

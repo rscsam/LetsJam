@@ -4,6 +4,7 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,7 +14,7 @@ public class PlayPianoFragment extends Fragment implements View.OnClickListener 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_play_piano, container, false);
+        View view = (ViewGroup) inflater.inflate(R.layout.fragment_play_piano, container, false);
         Button ab = (Button) view.findViewById(R.id.a_button);
         ab.setOnClickListener(this);
         Button bb = (Button) view.findViewById(R.id.b_button);
@@ -34,21 +35,28 @@ public class PlayPianoFragment extends Fragment implements View.OnClickListener 
         switch (view.getId()) {
             case R.id.a_button:
                 ((JamActivity) getActivity()).addSound(new Note(0, R.raw.a_piano));
+                Log.d("tag", "a pressed");
                 break;
             case R.id.b_button:
+                Log.d("tag", "b pressed");
                 break;
             case R.id.c_button:
+                Log.d("tag", "c pressed");
                 break;
             case R.id.d_button:
+                Log.d("tag", "d pressed");
                 break;
             case R.id.e_button:
+                Log.d("tag", "e pressed");
                 break;
             case R.id.f_button:
+                Log.d("tag", "f pressed");
+                ((JamActivity) getActivity()).addSound(new Note(0, R.raw.f_piano));
                 break;
         }
     }
 
-    public interface OnFragmentInteractionListener {
-        void onFragmentInteraction();
+    public interface OnPianoInteractionListener {
+        void onPianoInteraction();
     }
 }

@@ -1,5 +1,8 @@
 package com.hack.rss.letsjam;
 
+import android.app.Fragment;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.Intent;
 import android.media.AudioManager;
@@ -16,7 +19,8 @@ import java.util.ArrayList;
 
 
 
-public class JamActivity extends AppCompatActivity {
+public class JamActivity extends AppCompatActivity
+        implements PlayPianoFragment.OnPianoInteractionListener{
     //SoundPool.Builder soundPoolBuilder = new SoundPool.Builder();
     SoundPool soundPool = new SoundPool(6, AudioManager.STREAM_MUSIC, 0);
     ArrayList<Integer> record = new ArrayList<Integer>();
@@ -25,6 +29,8 @@ public class JamActivity extends AppCompatActivity {
     int[] sounds = new int[6];
     HashMap<Integer, Integer> soundMap;
 
+    Fragment fragment;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,6 +38,25 @@ public class JamActivity extends AppCompatActivity {
         Timer timer = new Timer();
         timer.scheduleAtFixedRate(new play(), new java.util.Date(), 50);
         context = getApplicationContext();
+
+        FragmentManager fragmentManager = getFragmentManager();
+        FragmentTransaction ft = fragmentManager.beginTransaction();
+        fragment = null;
+        Bundle extras = getIntent().getExtras();
+        int instrument = extras.getInt("instrument");
+        if (instrument == 0)
+            fragment = new PlayPianoFragment();
+//        else if (instrument == 1)
+//            fragment = new PlayDrumsFragment();
+//        else if (instrument == 2)
+//            fragment = new PlayGuitarFragment();
+//        else if (instrument == 3)
+//            fragment = new PlayBassFragment();
+        else
+            finish();
+        ft.replace(android.R.id.content, fragment);
+
+        ft.commit();
 
         soundMap = new HashMap<>();
         soundMap.put(R.raw.a_piano, soundPool.load(context, R.raw.a_piano, 1));
@@ -92,6 +117,11 @@ public class JamActivity extends AppCompatActivity {
         addSound(new Note(0, R.raw.b_piano));
     }
 
+    public void onPianoInteraction() { }
+    public void onDrumsInteration() { }
+    public void onGuitarInteraction() { }
+    public void onBassInteraction() { }
+
     class play extends TimerTask {
         @Override
         public void run() {
@@ -106,7 +136,5 @@ public class JamActivity extends AppCompatActivity {
             }
 
         }
-
-
     }
 }
