@@ -1,13 +1,17 @@
 package com.hack.rss.letsjam;
 
+import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import java.io.File;
 
 import java.util.ArrayList;
 
 public class EndJam extends AppCompatActivity {
 
     ArrayList<Integer> record;
+    Context context = getApplicationContext();
+    File path = context.getFilesDir();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +24,7 @@ public class EndJam extends AppCompatActivity {
 
 
     void saveJam() {
+
         for(Integer integer: record) {
 
         }
