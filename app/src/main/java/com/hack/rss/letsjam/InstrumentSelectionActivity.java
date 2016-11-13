@@ -9,12 +9,22 @@ import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.ImageButton;
 
+import java.util.ArrayList;
+
 public class InstrumentSelectionActivity extends AppCompatActivity {
+
+    ArrayList<Integer> notes;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_instrument_selection);
 
+        Bundle extras = getIntent().getExtras();
+        if (extras.size() != 0)
+            notes = extras.getIntegerArrayList("notes");
+        else
+            notes = null;
         ImageButton pianoBttn = (ImageButton) findViewById(R.id.piano_ib);
         ImageButton drumsBttn = (ImageButton) findViewById(R.id.drums_ib);
         ImageButton guitarBttn = (ImageButton) findViewById(R.id.guitar_ib);
@@ -37,6 +47,8 @@ public class InstrumentSelectionActivity extends AppCompatActivity {
     public void startJamPiano(View view) {
         Intent jamSession = new Intent(this, JamActivity.class);
         jamSession.putExtra("instrument", 0);
+        if (notes != null)
+            jamSession.putExtra("notes", notes);
         startActivity(jamSession);
         finish();
     }
@@ -44,6 +56,8 @@ public class InstrumentSelectionActivity extends AppCompatActivity {
     public void startJamDrums(View view) {
         Intent jamSession = new Intent(this, JamActivity.class);
         jamSession.putExtra("instrument", 1);
+        if (notes != null)
+            jamSession.putExtra("notes", notes);
         startActivity(jamSession);
         finish();
     }
@@ -51,6 +65,8 @@ public class InstrumentSelectionActivity extends AppCompatActivity {
     public void startJamGuitar(View view) {
         Intent jamSession = new Intent(this, JamActivity.class);
         jamSession.putExtra("instrument", 2);
+        if (notes != null)
+            jamSession.putExtra("notes", notes);
         startActivity(jamSession);
         finish();
     }
@@ -58,6 +74,8 @@ public class InstrumentSelectionActivity extends AppCompatActivity {
     public void startJamBass(View view) {
         Intent jamSession = new Intent(this, JamActivity.class);
         jamSession.putExtra("instrument", 3);
+        if (notes != null)
+            jamSession.putExtra("notes", notes);
         startActivity(jamSession);
         finish();
     }

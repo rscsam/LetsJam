@@ -48,6 +48,7 @@ public class JamActivity extends AppCompatActivity
         fragment = null;
         Bundle extras = getIntent().getExtras();
         int instrument = extras.getInt("instrument");
+        playback = extras.getIntegerArrayList("notes");
         if (instrument == 0)
             fragment = new PlayPianoFragment();
         else if (instrument == 1)
