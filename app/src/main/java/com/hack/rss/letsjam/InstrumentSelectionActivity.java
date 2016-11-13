@@ -15,28 +15,28 @@ public class InstrumentSelectionActivity extends AppCompatActivity {
     }
 
     public void startJamPiano(View view) {
-        Intent jamSession = new Intent(this, JamActivityClone.class);
+        Intent jamSession = new Intent(this, JamActivity.class);
         jamSession.putExtra("instrument", 0);
         startActivity(jamSession);
         finish();
     }
 
     public void startJamDrums(View view) {
-        Intent jamSession = new Intent(this, JamActivityClone.class);
+        Intent jamSession = new Intent(this, JamActivity.class);
         jamSession.putExtra("instrument", 1);
         startActivity(jamSession);
         finish();
     }
 
     public void startJamGuitar(View view) {
-        Intent jamSession = new Intent(this, JamActivityClone.class);
+        Intent jamSession = new Intent(this, JamActivity.class);
         jamSession.putExtra("instrument", 2);
         startActivity(jamSession);
         finish();
     }
 
     public void startJamBass(View view) {
-        Intent jamSession = new Intent(this, JamActivityClone.class);
+        Intent jamSession = new Intent(this, JamActivity.class);
         jamSession.putExtra("instrument", 3);
         startActivity(jamSession);
         finish();

@@ -32,9 +32,16 @@
             android:name=".InstrumentSelectionActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:screenOrientation="landscape" />
-        <activity android:name=".JamActivity" />
-        <activity android:name=".JamActivityClone"></activity>
-        <activity android:name=".EndJam"></activity>
+        <activity android:name=".JamActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="landscape" />
+
+        <activity android:name=".JamActivityClone"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="landscape" />
+        <activity android:name=".EndJam"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="landscape" />
     </application>
 
 </manifest>
