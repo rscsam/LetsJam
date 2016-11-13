@@ -32,7 +32,8 @@
             android:name=".InstrumentSelectionActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:screenOrientation="landscape" />
-        <activity android:name=".JamActivity"></activity>
+        <activity android:name=".JamActivity" />
+        <activity android:name=".EndJam"></activity>
     </application>
 
 </manifest>

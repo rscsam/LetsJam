@@ -1,5 +1,6 @@
 package com.hack.rss.letsjam;
 
+import android.content.Intent;
 import android.media.AudioManager;
 import android.media.SoundPool;
 import android.support.v7.app.AppCompatActivity;
@@ -8,11 +9,14 @@ import android.media.MediaPlayer;
 import android.view.View;
 import java.util.Timer;
 import java.util.TimerTask;
-import java.io.File;
+import java.util.ArrayList;
+
+
 
 public class JamActivity extends AppCompatActivity {
     //SoundPool.Builder soundPoolBuilder = new SoundPool.Builder();
     SoundPool soundPool = new SoundPool(6, AudioManager.STREAM_MUSIC, 0);
+    ArrayList<Integer> record = new ArrayList<Integer>();
 
 
     int[] sounds = new int[6];
@@ -22,22 +26,8 @@ public class JamActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_jam);
         Timer timer = new Timer();
-        timer.scheduleAtFixedRate(new play(), new java.util.Date(), 1000);
-        try {
-            File outputFile = File.createTempFile("temp", null, getCacheDir());
-        } catch(java.io.IOException e) {}
+        timer.scheduleAtFixedRate(new play(), new java.util.Date(), 100);
     }
-
-    /*
-    public void playSound() {
-        if (System.nanoTime() % 10 == 0) {
-            MediaPlayer.create(this, R.raw.f0_piano).start();
-            soundPool.play(piano1, 1, 1, 0, 0, 1);
-        }
-
-    }
-    */
-
 
     public void addSound(Note note) {
 
@@ -71,6 +61,13 @@ public class JamActivity extends AppCompatActivity {
         }
     }
 
+    public void endJam(View view) {
+        Intent endJam = new Intent(this, EndJam.class);
+        endJam.putExtra("record", record);
+        startActivity(endJam);
+        finish();
+    }
+
     class play extends TimerTask {
         @Override
         public void run() {
@@ -80,7 +77,11 @@ public class JamActivity extends AppCompatActivity {
                     soundPool.play(sounds[i], 1, 1, 0, 0, 1);
                     sounds[i] = 0;
                 }
+                record.add(sounds[i]);
             }
+
         }
+
+
     }
 }
