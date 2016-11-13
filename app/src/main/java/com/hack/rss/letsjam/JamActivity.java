@@ -194,9 +194,9 @@ public class JamActivity extends AppCompatActivity
                 if (sounds[i] != 0) {
                     int sound = soundPool.load(context, sounds[i], 1);
                     soundPool.play(soundMap.get(sounds[i]), 1, 1, 0, 0, 1);
-                    sounds[i] = 0;
                 }
                 record.add(sounds[i]);
+                sounds[i] = 0;
             }
             if (clock > 30000) {
                 Log.d("Fin", "Clock finished");

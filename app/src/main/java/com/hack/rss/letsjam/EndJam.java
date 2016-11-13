@@ -4,8 +4,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import java.io.File;
 import java.io.DataOutputStream;
@@ -29,15 +31,26 @@ public class EndJam extends AppCompatActivity {
         ArrayList<Integer> record = extras.getIntegerArrayList("record");
         FileOutputStream output = null;
         try {
-            output = new FileOutputStream(path);
+            output = new FileOutputStream(file, false);
         } catch (java.io.FileNotFoundException e) { finish();}
 
         DataOutputStream dataOutput = new DataOutputStream(output);
         for(Integer integer: record) {
             try {
-                dataOutput.write(integer);
+                dataOutput.writeInt(integer);
+                Log.d("FILE", "Wrote " + integer);
             } catch (java.io.IOException e) {}
         }
+        try {
+            Log.d("FILE", "Wrote " + file.getCanonicalPath());
+            Toast.makeText(this, "File saved to " + file.getCanonicalPath(), Toast.LENGTH_SHORT).show();
+            dataOutput.flush();
+            dataOutput.close();
+        } catch (java.io.IOException e) {
+            Log.d("FILE", "Error closing file");
+        }
+        Log.d("FILE", "Didn't break when writing file");
+        finish();
     }
 
     public void returnHome(View view) {
