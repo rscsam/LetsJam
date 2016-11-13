@@ -7,12 +7,21 @@ import java.util.ArrayList;
 
 public class EndJam extends AppCompatActivity {
 
+    ArrayList<Integer> record;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_end_jam);
 
         Bundle extras = getIntent().getExtras();
-        ArrayList<Integer> record = extras.getIntegerArrayList("record");
+        record = extras.getIntegerArrayList("record");
+    }
+
+
+    void saveJam() {
+        for(Integer integer: record) {
+
+        }
     }
 }

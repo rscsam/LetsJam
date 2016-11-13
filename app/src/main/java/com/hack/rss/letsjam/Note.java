@@ -6,7 +6,7 @@ public class Note {
     private long time;
     private int soundFile;
 
-    public Note(int instrument, long time, int soundFile) {
+    public Note(int instrument, int soundFile) {
         this.instrument = instrument;
         this.time = time;
         this.soundFile = soundFile;
@@ -16,9 +16,6 @@ public class Note {
         return instrument;
     }
 
-    public long getTime() {
-        return time;
-    }
 
     public int getsoundFile() {
         return soundFile;
