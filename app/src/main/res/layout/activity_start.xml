@@ -15,14 +15,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:text="@string/join_session_button"
-        android:onClick="startJoinBluetoothActivity"
+        android:text="@string/start_session"
+        android:onClick="startSelectionsActivity"
         android:id="@+id/bttn_join_session"/>
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:text="@string/replay_past_sessions"
-        android:layout_below="@id/bttn_join_session"/>
 </RelativeLayout>

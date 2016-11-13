@@ -13,13 +13,8 @@ public class StartActivity extends AppCompatActivity {
         setContentView(R.layout.activity_start);
     }
 
-    public void startHostBluetoothActivity(View view) {
-        Intent hostBluetoothActivity = new Intent(this, HostBluetoothActivity.class);
-        startActivity(hostBluetoothActivity);
-    }
-
-    public void startJoinBluetoothActivity(View view) {
-        Intent joinBluetoothActivity = new Intent(this, JoinBluetoothActivity.class);
-        startActivity(joinBluetoothActivity);
+    public void startSelectionsActivity(View view) {
+        Intent startSelectionsActivity = new Intent(this, SelectionsActivity.class);
+        startActivity(startSelectionsActivity);
     }
 }
