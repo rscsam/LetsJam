@@ -24,11 +24,13 @@ public class JamActivity extends AppCompatActivity
         PlayDrumsFragment.OnDrumsInteractionListener {
     //SoundPool.Builder soundPoolBuilder = new SoundPool.Builder();
     SoundPool soundPool = new SoundPool(6, AudioManager.STREAM_MUSIC, 0);
-    ArrayList<Integer> record = new ArrayList<Integer>();
+    ArrayList<Integer> record = new ArrayList<>();
     Context context;
 
     int[] sounds = new int[6];
     HashMap<Integer, Integer> soundMap;
+    ArrayList<Integer> playback = new ArrayList<>();
+    int counter = 0;
 
     Fragment fragment;
 
@@ -192,8 +194,11 @@ public class JamActivity extends AppCompatActivity
             clock += clockRate;
             for(int i = 0; i < 6; i++) {
                 if (sounds[i] != 0) {
-                    int sound = soundPool.load(context, sounds[i], 1);
                     soundPool.play(soundMap.get(sounds[i]), 1, 1, 0, 0, 1);
+                    counter++;
+                } else {
+                    soundPool.play(soundMap.get(playback.get(counter)), 1, 1, 0, 0, 1);
+                    counter++;
                 }
                 record.add(sounds[i]);
                 sounds[i] = 0;
